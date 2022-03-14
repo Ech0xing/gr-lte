@@ -27,7 +27,7 @@
 
 #include <fftw3.h>
 #include <volk/volk.h>
-
+#include <functional>
 #include <cstdio>
 
 namespace gr {
@@ -58,7 +58,7 @@ namespace gr {
 		//~ printf("alignment set!\n");
 		
 		message_port_register_in(pmt::mp("cell_id"));
-		set_msg_handler(pmt::mp("cell_id"), boost::bind(&pbch_descrambler_vfvf_impl::set_cell_id_msg, this, _1));
+		set_msg_handler(pmt::mp("cell_id"), std::bind(&pbch_descrambler_vfvf_impl::set_cell_id_msg, this, std::placeholders::_1));
 
 		// set PMT blob info
 		d_key=pmt::string_to_symbol(key);

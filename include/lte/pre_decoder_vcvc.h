@@ -697,7 +697,7 @@ namespace gr {
     class LTE_API pre_decoder_vcvc : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<pre_decoder_vcvc> sptr;
+      typedef std::shared_ptr<pre_decoder_vcvc> sptr;
 
       virtual void set_N_ant(int N_ant) = 0;
       virtual int get_N_ant() = 0;

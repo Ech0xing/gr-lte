@@ -26,6 +26,7 @@
 #include "sss_tagger_cc_impl.h"
 
 #include <cstdio>
+#include <functional>
 
 namespace gr {
   namespace lte {
@@ -58,7 +59,7 @@ namespace gr {
         d_tag_id = pmt::string_to_symbol(this->name() );
         
         message_port_register_in(pmt::mp("frame_start"));
-		set_msg_handler(pmt::mp("frame_start"), boost::bind(&sss_tagger_cc_impl::handle_msg_frame_start, this, _1));
+		set_msg_handler(pmt::mp("frame_start"), std::bind(&sss_tagger_cc_impl::handle_msg_frame_start, this, std::placeholders::_1));
 
     }
     

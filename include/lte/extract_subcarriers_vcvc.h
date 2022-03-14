@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API extract_subcarriers_vcvc : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<extract_subcarriers_vcvc> sptr;
+      typedef std::shared_ptr<extract_subcarriers_vcvc> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::extract_subcarriers_vcvc.

@@ -26,7 +26,7 @@
 #include "mimo_pss_coarse_control_impl.h"
 
 #include <cstdio>
-
+#include <functional>
 namespace gr {
   namespace lte {
 
@@ -48,7 +48,7 @@ namespace gr {
               d_rxant(rxant)
     {
         message_port_register_in(pmt::mp("control"));
-        set_msg_handler(pmt::mp("control"), boost::bind(&mimo_pss_coarse_control_impl::handle_msg_control, this, _1));
+        set_msg_handler(pmt::mp("control"), std::bind(&mimo_pss_coarse_control_impl::handle_msg_control, this, std::placeholders::_1));
     }
 
     void

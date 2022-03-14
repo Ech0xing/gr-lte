@@ -35,7 +35,7 @@ namespace gr {
     class LTE_API mimo_pss_coarse_control : virtual public gr::block
     {
      public:
-      typedef boost::shared_ptr<mimo_pss_coarse_control> sptr;
+      typedef std::shared_ptr<mimo_pss_coarse_control> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::mimo_pss_coarse_control.

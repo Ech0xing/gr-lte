@@ -37,7 +37,7 @@ namespace gr {
     class LTE_API remove_cp_cvc : virtual public gr::block
     {
      public:
-      typedef boost::shared_ptr<remove_cp_cvc> sptr;
+      typedef std::shared_ptr<remove_cp_cvc> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::remove_cp_cvc.

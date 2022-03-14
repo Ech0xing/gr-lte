@@ -26,7 +26,7 @@
 #include "mimo_sss_calculator_impl.h"
 #include <volk/volk.h>
 #include <cstdio>
-
+#include <functional>
 #include <boost/multi_array.hpp>
 
 namespace gr {
@@ -65,7 +65,7 @@ namespace gr {
         d_port_frame_start = pmt::string_to_symbol("frame_start");
         message_port_register_out(d_port_frame_start);
         message_port_register_in(pmt::mp("N_id_2"));
-		set_msg_handler(pmt::mp("N_id_2"), boost::bind(&mimo_sss_calculator_impl::msg_set_N_id_2, this, _1));
+		set_msg_handler(pmt::mp("N_id_2"), std::bind(&mimo_sss_calculator_impl::msg_set_N_id_2, this, std::placeholders::_1));
 
         //initialize d_cX
         char cX_x[31] = {0};

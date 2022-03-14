@@ -26,7 +26,7 @@
 #include "repeat_message_source_vf_impl.h"
 
 #include <cstdio>
-
+#include <functional>
 namespace gr {
   namespace lte {
 
@@ -49,7 +49,7 @@ namespace gr {
     {
 		d_port = pmt::string_to_symbol("vector");
 		message_port_register_in(d_port);
-		set_msg_handler(pmt::mp("vector"), boost::bind(&repeat_message_source_vf_impl::handle_msg, this, _1));
+		set_msg_handler(pmt::mp("vector"), std::bind(&repeat_message_source_vf_impl::handle_msg, this, std::placeholders::_1));
 	}
 
     /*

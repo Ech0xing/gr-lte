@@ -24,7 +24,7 @@
 
 #include <gnuradio/io_signature.h>
 #include "mimo_sss_tagger_impl.h"
-
+#include <functional>
 #include <cstdio>
 
 namespace gr {
@@ -54,7 +54,7 @@ namespace gr {
         d_tag_id = pmt::string_to_symbol(this->name() );
 
         message_port_register_in(pmt::mp("frame_start"));
-		set_msg_handler(pmt::mp("frame_start"), boost::bind(&mimo_sss_tagger_impl::handle_msg_frame_start, this, _1));
+		set_msg_handler(pmt::mp("frame_start"), std::bind(&mimo_sss_tagger_impl::handle_msg_frame_start, this, std::placeholders::_1));
 
     }
 

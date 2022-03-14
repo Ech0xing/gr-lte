@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API qpsk_soft_demod_vcvf : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<qpsk_soft_demod_vcvf> sptr;
+      typedef std::shared_ptr<qpsk_soft_demod_vcvf> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::qpsk_soft_demod_vcvf.

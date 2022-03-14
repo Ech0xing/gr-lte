@@ -25,7 +25,7 @@
 #include <gnuradio/io_signature.h>
 #include "layer_demapper_vcvc_impl.h"
 #include <cstdio>
-
+#include <functional>
 namespace gr {
   namespace lte {
 
@@ -52,7 +52,7 @@ namespace gr {
 
 		pmt::pmt_t msg_buf = pmt::mp("N_ant");
 		message_port_register_in(msg_buf);
-		set_msg_handler(msg_buf, boost::bind(&layer_demapper_vcvc_impl::handle_msg, this, _1));
+		set_msg_handler(msg_buf, std::bind(&layer_demapper_vcvc_impl::handle_msg, this, std::placeholders::_1));
 	}
 
     /*

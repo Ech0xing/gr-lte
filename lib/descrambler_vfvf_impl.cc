@@ -28,7 +28,7 @@
 #include <fftw3.h>
 #include <volk/volk.h>
 #include <boost/format.hpp>
-
+#include <functional>
 namespace gr {
   namespace lte {
 
@@ -54,7 +54,7 @@ namespace gr {
 
         d_msg_buf = pmt::mp(msg_buf_name);
         message_port_register_in(d_msg_buf);
-        set_msg_handler(d_msg_buf, boost::bind(&descrambler_vfvf_impl::handle_msg, this, _1));
+        set_msg_handler(d_msg_buf, std::bind(&descrambler_vfvf_impl::handle_msg, this, std::placeholders::_1));
     }
 
     /*

@@ -36,7 +36,7 @@ namespace lte
 {
 
 mimo_pss_freq_sync::sptr
-mimo_pss_freq_sync::make(int fftl, int rxant, boost::shared_ptr<gr::analog::sig_source_c> &sig)
+mimo_pss_freq_sync::make(int fftl, int rxant, std::shared_ptr<gr::analog::sig_source_c> &sig)
 {
     return gnuradio::get_initial_sptr
            (new mimo_pss_freq_sync_impl(fftl, rxant, sig));
@@ -45,7 +45,7 @@ mimo_pss_freq_sync::make(int fftl, int rxant, boost::shared_ptr<gr::analog::sig_
 /*
  * The private constructor
  */
-mimo_pss_freq_sync_impl::mimo_pss_freq_sync_impl(int fftl, int rxant, boost::shared_ptr<gr::analog::sig_source_c> &sig)
+mimo_pss_freq_sync_impl::mimo_pss_freq_sync_impl(int fftl, int rxant, std::shared_ptr<gr::analog::sig_source_c> &sig)
     : gr::sync_block("mimo_pss_freq_sync",
                      gr::io_signature::make(1, 8, sizeof(gr_complex)),
                      gr::io_signature::make(0, 0, 0)),

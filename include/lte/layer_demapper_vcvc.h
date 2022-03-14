@@ -40,7 +40,7 @@ namespace gr {
     class LTE_API layer_demapper_vcvc : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<layer_demapper_vcvc> sptr;
+      typedef std::shared_ptr<layer_demapper_vcvc> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::layer_demapper_vcvc.

@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API crc_check_vbvb : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<crc_check_vbvb> sptr;
+      typedef std::shared_ptr<crc_check_vbvb> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::crc_check_vbvb.

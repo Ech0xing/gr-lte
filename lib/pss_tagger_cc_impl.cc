@@ -24,7 +24,7 @@
 
 #include <gnuradio/io_signature.h>
 #include "pss_tagger_cc_impl.h"
-
+#include <functional>
 namespace gr {
   namespace lte {
 
@@ -57,13 +57,13 @@ namespace gr {
         d_id_key = pmt::string_to_symbol("N_id_2");
         
         message_port_register_in(pmt::mp("lock"));
-		set_msg_handler(pmt::mp("lock"), boost::bind(&pss_tagger_cc_impl::handle_msg_lock, this, _1));
+		set_msg_handler(pmt::mp("lock"), std::bind(&pss_tagger_cc_impl::handle_msg_lock, this, std::placeholders::_1));
 
         message_port_register_in(pmt::mp("half_frame"));
-		set_msg_handler(pmt::mp("half_frame"), boost::bind(&pss_tagger_cc_impl::handle_msg_half_frame_start, this, _1));
+		set_msg_handler(pmt::mp("half_frame"), std::bind(&pss_tagger_cc_impl::handle_msg_half_frame_start, this, std::placeholders::_1));
 
         message_port_register_in(pmt::mp("N_id_2"));
-		set_msg_handler(pmt::mp("N_id_2"), boost::bind(&pss_tagger_cc_impl::handle_msg_N_id_2, this, _1));
+		set_msg_handler(pmt::mp("N_id_2"), std::bind(&pss_tagger_cc_impl::handle_msg_N_id_2, this, std::placeholders::_1));
     }
     
     void

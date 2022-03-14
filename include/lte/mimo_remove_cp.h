@@ -35,7 +35,7 @@ namespace gr {
     class LTE_API mimo_remove_cp : virtual public gr::block
     {
      public:
-      typedef boost::shared_ptr<mimo_remove_cp> sptr;
+      typedef std::shared_ptr<mimo_remove_cp> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::mimo_remove_cp.

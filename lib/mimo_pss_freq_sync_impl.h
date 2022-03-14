@@ -41,7 +41,7 @@ namespace gr {
        gr_complex **d_buf_pss;
 
        pmt::pmt_t d_id_key;
-       boost::shared_ptr<gr::analog::sig_source_c> d_sig;
+       std::shared_ptr<gr::analog::sig_source_c> d_sig;
 
        void mult_memcpy(gr_complex** &out,
                 const gr_vector_const_void_star &in,
@@ -51,7 +51,7 @@ namespace gr {
 
 
      public:
-      mimo_pss_freq_sync_impl(int fftl, int rxant, boost::shared_ptr<gr::analog::sig_source_c> &sig);
+      mimo_pss_freq_sync_impl(int fftl, int rxant, std::shared_ptr<gr::analog::sig_source_c> &sig);
       ~mimo_pss_freq_sync_impl();
 
 

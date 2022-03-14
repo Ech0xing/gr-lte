@@ -26,7 +26,7 @@
 #include "mimo_pss_tagger_impl.h"
 
 #include <cstdio>
-
+#include <functional>
 namespace gr
 {
 namespace lte
@@ -61,11 +61,11 @@ mimo_pss_tagger_impl::mimo_pss_tagger_impl(int fftl)
     d_id_key = pmt::string_to_symbol("N_id_2");
 
     message_port_register_in(pmt::mp("lock"));
-    set_msg_handler(pmt::mp("lock"), boost::bind(&mimo_pss_tagger_impl::handle_msg_lock, this, _1));
+    set_msg_handler(pmt::mp("lock"), std::bind(&mimo_pss_tagger_impl::handle_msg_lock, this, std::placeholders::_1));
     message_port_register_in(pmt::mp("half_frame"));
-    set_msg_handler(pmt::mp("half_frame"), boost::bind(&mimo_pss_tagger_impl::handle_msg_half_frame, this, _1));
+    set_msg_handler(pmt::mp("half_frame"), std::bind(&mimo_pss_tagger_impl::handle_msg_half_frame, this, std::placeholders::_1));
     message_port_register_in(pmt::mp("N_id_2"));
-    set_msg_handler(pmt::mp("N_id_2"), boost::bind(&mimo_pss_tagger_impl::handle_msg_N_id_2, this, _1));
+    set_msg_handler(pmt::mp("N_id_2"), std::bind(&mimo_pss_tagger_impl::handle_msg_N_id_2, this, std::placeholders::_1));
 }
 
 /*

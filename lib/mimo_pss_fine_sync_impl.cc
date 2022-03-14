@@ -29,7 +29,7 @@
 #include <cmath>
 #include <volk/volk.h>
 #include "lte/pss.h"
-
+#include <functional>
 #include <gnuradio/filter/fir_filter.h>
 
 namespace gr
@@ -82,9 +82,9 @@ mimo_pss_fine_sync_impl::mimo_pss_fine_sync_impl(int fftl, int rxant, int grpdel
     d_a = (gr_complex*)volk_malloc(sizeof(gr_complex)*4,alig);
 
     message_port_register_in(pmt::mp("N_id_2"));
-    set_msg_handler(pmt::mp("N_id_2"), boost::bind(&mimo_pss_fine_sync_impl::handle_msg_N_id_2, this, _1));
+    set_msg_handler(pmt::mp("N_id_2"), std::bind(&mimo_pss_fine_sync_impl::handle_msg_N_id_2, this, std::placeholders::_1));
     message_port_register_in(pmt::mp("coarse_pos"));
-    set_msg_handler(pmt::mp("coarse_pos"), boost::bind(&mimo_pss_fine_sync_impl::handle_msg_coarse_pos, this, _1));
+    set_msg_handler(pmt::mp("coarse_pos"), std::bind(&mimo_pss_fine_sync_impl::handle_msg_coarse_pos, this, std::placeholders::_1));
 
     d_port_half_frame = pmt::string_to_symbol("half_frame");
     message_port_register_out(d_port_half_frame);

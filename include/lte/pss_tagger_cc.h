@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API pss_tagger_cc : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<pss_tagger_cc> sptr;
+      typedef std::shared_ptr<pss_tagger_cc> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::pss_tagger_cc.

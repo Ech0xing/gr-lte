@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API sss_symbol_selector_cvc : virtual public gr::block
     {
      public:
-      typedef boost::shared_ptr<sss_symbol_selector_cvc> sptr;
+      typedef std::shared_ptr<sss_symbol_selector_cvc> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::sss_symbol_selector_cvc.

@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API bch_crc_check_ant_chooser_bb : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<bch_crc_check_ant_chooser_bb> sptr;
+      typedef std::shared_ptr<bch_crc_check_ant_chooser_bb> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::bch_crc_check_ant_chooser_bb.

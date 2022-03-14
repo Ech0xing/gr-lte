@@ -38,7 +38,7 @@ namespace gr {
     class LTE_API descrambler_vfvf : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<descrambler_vfvf> sptr;
+      typedef std::shared_ptr<descrambler_vfvf> sptr;
       
       virtual void set_descr_seqs(std::vector<std::vector<float> > seqs) = 0;
 

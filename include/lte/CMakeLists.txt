@@ -44,7 +44,7 @@ install(FILES
     correlator.h
     sss_symbol_selector_cvc.h
     sss_tagger_cc.h
-    sync_frequency_c.h
+    sync_frequency.h
     descrambler_vfvf.h
     pcfich_demux_vcvc.h
     mimo_pss_coarse_sync.h

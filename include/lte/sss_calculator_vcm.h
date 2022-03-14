@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API sss_calculator_vcm : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<sss_calculator_vcm> sptr;
+      typedef std::shared_ptr<sss_calculator_vcm> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::sss_calculator_vcm.

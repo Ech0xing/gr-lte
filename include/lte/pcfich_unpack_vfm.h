@@ -37,7 +37,7 @@ namespace gr {
     class LTE_API pcfich_unpack_vfm : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<pcfich_unpack_vfm> sptr;
+      typedef std::shared_ptr<pcfich_unpack_vfm> sptr;
       
       virtual void activate_debug_mode(bool ena) = 0;
       virtual std::vector<int> cfi_results() = 0;

@@ -43,7 +43,7 @@ namespace gr {
     class LTE_API channel_estimator_vcvc : virtual public gr::sync_block
     {
     public:
-      typedef boost::shared_ptr<channel_estimator_vcvc> sptr;
+      typedef std::shared_ptr<channel_estimator_vcvc> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::channel_estimator_vcvc.

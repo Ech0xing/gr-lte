@@ -24,7 +24,7 @@
 
 #include <gnuradio/io_signature.h>
 #include "pre_decoder_vcvc_impl.h"
-
+#include <functional>
 #include <cstdio>
 #include <cmath>
 #include <volk/volk.h>
@@ -55,7 +55,7 @@ namespace gr {
 
 		pmt::pmt_t msg_buf = pmt::mp("N_ant");
 		message_port_register_in(msg_buf);
-		set_msg_handler(msg_buf, boost::bind(&pre_decoder_vcvc_impl::handle_msg, this, _1));
+		set_msg_handler(msg_buf, std::bind(&pre_decoder_vcvc_impl::handle_msg, this, std::placeholders::_1));
 	}
 
     /*

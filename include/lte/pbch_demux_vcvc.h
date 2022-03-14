@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API pbch_demux_vcvc : virtual public gr::block
     {
      public:
-      typedef boost::shared_ptr<pbch_demux_vcvc> sptr;
+      typedef std::shared_ptr<pbch_demux_vcvc> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::pbch_demux_vcvc.

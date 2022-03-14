@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API pbch_descrambler_vfvf : virtual public gr::sync_interpolator
     {
      public:
-      typedef boost::shared_ptr<pbch_descrambler_vfvf> sptr;
+      typedef std::shared_ptr<pbch_descrambler_vfvf> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::pbch_descrambler_vfvf.

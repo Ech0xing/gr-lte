@@ -24,7 +24,7 @@
 
 #include <gnuradio/io_signature.h>
 #include "pbch_demux_vcvc_impl.h"
-
+#include <functional>
 #include <cstdio>
 
 namespace gr {
@@ -50,7 +50,7 @@ namespace gr {
 			  d_rxant(rxant)
     {
         message_port_register_in(pmt::mp("cell_id"));
-		set_msg_handler(pmt::mp("cell_id"), boost::bind(&pbch_demux_vcvc_impl::set_cell_id_msg, this, _1));
+		set_msg_handler(pmt::mp("cell_id"), std::bind(&pbch_demux_vcvc_impl::set_cell_id_msg, this, std::placeholders::_1));
 
     }
 

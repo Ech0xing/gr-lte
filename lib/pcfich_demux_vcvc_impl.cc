@@ -24,7 +24,7 @@
 
 #include <gnuradio/io_signature.h>
 #include "pcfich_demux_vcvc_impl.h"
-
+#include <functional>
 namespace gr {
   namespace lte {
 
@@ -51,7 +51,7 @@ namespace gr {
         d_tag_id = pmt::string_to_symbol( this->name() );
         d_msg_buf = pmt::mp(msg_buf_name);
         message_port_register_in(d_msg_buf);
-        set_msg_handler(d_msg_buf, boost::bind(&pcfich_demux_vcvc_impl::handle_msg, this, _1));
+        set_msg_handler(d_msg_buf, std::bind(&pcfich_demux_vcvc_impl::handle_msg, this, std::placeholders::_1));
 
         //set_tag_propagation_policy(TPP_DONT);
 

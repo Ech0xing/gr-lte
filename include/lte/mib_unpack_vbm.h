@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API mib_unpack_vbm : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<mib_unpack_vbm> sptr;
+      typedef std::shared_ptr<mib_unpack_vbm> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::mib_unpack_vbm.

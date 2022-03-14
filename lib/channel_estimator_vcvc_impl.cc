@@ -29,6 +29,7 @@
 #include <cmath>
 #include <cstdio>
 #include <string>
+#include <functional>
 
 namespace gr {
   namespace lte {
@@ -69,7 +70,7 @@ namespace gr {
       message_port_register_in(d_msg_buf);
       set_msg_handler(
           d_msg_buf,
-          boost::bind(&channel_estimator_vcvc_impl::handle_msg, this, _1));
+          std::bind(&channel_estimator_vcvc_impl::handle_msg, this, std::placeholders::_1));
 
       set_pilot_map(pilot_carriers, pilot_symbols);
     }

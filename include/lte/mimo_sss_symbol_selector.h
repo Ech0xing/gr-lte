@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API mimo_sss_symbol_selector : virtual public gr::block
     {
      public:
-      typedef boost::shared_ptr<mimo_sss_symbol_selector> sptr;
+      typedef std::shared_ptr<mimo_sss_symbol_selector> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::mimo_sss_symbol_selector.

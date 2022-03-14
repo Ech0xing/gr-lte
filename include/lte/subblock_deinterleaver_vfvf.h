@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API subblock_deinterleaver_vfvf : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<subblock_deinterleaver_vfvf> sptr;
+      typedef std::shared_ptr<subblock_deinterleaver_vfvf> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::subblock_deinterleaver_vfvf.

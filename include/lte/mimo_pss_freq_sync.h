@@ -24,7 +24,7 @@
 
 #include <lte/api.h>
 #include <gnuradio/sync_block.h>
-#include <gnuradio/analog/sig_source_c.h>
+#include <gnuradio/analog/sig_source.h>
 
 namespace gr {
   namespace lte {
@@ -37,7 +37,7 @@ namespace gr {
     class LTE_API mimo_pss_freq_sync : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<mimo_pss_freq_sync> sptr;
+      typedef std::shared_ptr<mimo_pss_freq_sync> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::mimo_pss_freq_sync.
@@ -47,7 +47,7 @@ namespace gr {
        * class. lte::mimo_pss_freq_sync::make is the public interface for
        * creating new instances.
        */
-      static sptr make(int fftl, int rxant, boost::shared_ptr<gr::analog::sig_source_c> &sig);
+      static sptr make(int fftl, int rxant, std::shared_ptr<gr::analog::sig_source_c> &sig);
     };
 
   } // namespace lte

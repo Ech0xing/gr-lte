@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API mimo_sss_tagger : virtual public gr::sync_block
     {
      public:
-      typedef boost::shared_ptr<mimo_sss_tagger> sptr;
+      typedef std::shared_ptr<mimo_sss_tagger> sptr;
 
       /*!
        * \brief Return a shared_ptr to a new instance of lte::mimo_sss_tagger.

@@ -1,777 +1,283 @@
-<?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.9'?>
-<flow_graph>
-  <timestamp>Wed Oct  1 15:29:15 2014</timestamp>
-  <block>
-    <key>options</key>
-    <param>
-      <key>author</key>
-      <value>Kristian Maier</value>
-    </param>
-    <param>
-      <key>window_size</key>
-      <value>1500, 1200</value>
-    </param>
-    <param>
-      <key>category</key>
-      <value>lte</value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>description</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(8, 11)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>generate_options</key>
-      <value>hb</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>lte_pss_sync_direct_mimo_2tx</value>
-    </param>
-    <param>
-      <key>max_nouts</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>qt_qss_theme</key>
-      <value></value>
-    </param>
-    <param>
-      <key>realtime_scheduling</key>
-      <value></value>
-    </param>
-    <param>
-      <key>run_command</key>
-      <value>{python} -u {filename}</value>
-    </param>
-    <param>
-      <key>run_options</key>
-      <value>prompt</value>
-    </param>
-    <param>
-      <key>run</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>thread_safe_setters</key>
-      <value></value>
-    </param>
-    <param>
-      <key>title</key>
-      <value>PSS Sync direct MIMO 2TX</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(400, 347)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>taps</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>filter.optfir.low_pass(1, fftlen*15e3, 472.5e3, 900e3, 0.2, 40)</value>
-    </param>
-  </block>
-  <block>
-    <key>parameter</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(192, 11)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>fftlen</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>FFT length</value>
-    </param>
-    <param>
-      <key>short_id</key>
-      <value></value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>intx</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>2048</value>
-    </param>
-  </block>
-  <block>
-    <key>fir_filter_xxx</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>decim</key>
-      <value>fftlen/64</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(392, 411)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>fir_filter_xxx_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>samp_delay</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>taps</key>
-      <value>taps</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>ccc</value>
-    </param>
-  </block>
-  <block>
-    <key>fir_filter_xxx</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>decim</key>
-      <value>fftlen/64</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(392, 443)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>fir_filter_xxx_0_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>samp_delay</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>taps</key>
-      <value>taps</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>ccc</value>
-    </param>
-  </block>
-  <block>
-    <key>lte_mimo_pss_coarse_control</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(128, 408)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>lte_mimo_pss_coarse_control_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>rxant</key>
-      <value>rxant</value>
-    </param>
-  </block>
-  <block>
-    <key>lte_mimo_pss_coarse_sync</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(680, 408)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>lte_mimo_pss_coarse_sync_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>rxant</key>
-      <value>rxant</value>
-    </param>
-    <param>
-      <key>syncl</key>
-      <value>synclen</value>
-    </param>
-  </block>
-  <block>
-    <key>lte_mimo_pss_fine_sync</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>fftl</key>
-      <value>fftlen</value>
-    </param>
-    <param>
-      <key>grpdelay</key>
-      <value>len(taps)/2</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(688, 232)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>lte_mimo_pss_fine_sync_1</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>rxant</key>
-      <value>rxant</value>
-    </param>
-  </block>
-  <block>
-    <key>lte_mimo_pss_tagger</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>fftl</key>
-      <value>fftlen</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1072, 168)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>lte_mimo_pss_tagger_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>rxant</key>
-      <value>rxant</value>
-    </param>
-  </block>
-  <block>
-    <key>pad_sink</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1360, 216)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pad_sink_0</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>out</value>
-    </param>
-    <param>
-      <key>num_streams</key>
-      <value>rxant</value>
-    </param>
-    <param>
-      <key>optional</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-  </block>
-  <block>
-    <key>pad_sink</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1152, 403)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pad_sink_1</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>message</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>N_id_2</value>
-    </param>
-    <param>
-      <key>num_streams</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>optional</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-  </block>
-  <block>
-    <key>pad_source</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(48, 168)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pad_source_0</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>in</value>
-    </param>
-    <param>
-      <key>num_streams</key>
-      <value>rxant</value>
-    </param>
-    <param>
-      <key>optional</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-  </block>
-  <block>
-    <key>parameter</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(296, 11)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>rxant</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>RX antennas</value>
-    </param>
-    <param>
-      <key>short_id</key>
-      <value></value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>intx</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>2</value>
-    </param>
-  </block>
-  <block>
-    <key>parameter</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(416, 11)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>synclen</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value></value>
-    </param>
-    <param>
-      <key>short_id</key>
-      <value></value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>intx</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>4</value>
-    </param>
-  </block>
-  <connection>
-    <source_block_id>fir_filter_xxx_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_coarse_sync_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>fir_filter_xxx_0_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_coarse_sync_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>1</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>lte_mimo_pss_coarse_control_0</source_block_id>
-    <sink_block_id>fir_filter_xxx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>lte_mimo_pss_coarse_control_0</source_block_id>
-    <sink_block_id>fir_filter_xxx_0_0</sink_block_id>
-    <source_key>1</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>lte_mimo_pss_coarse_sync_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_fine_sync_1</sink_block_id>
-    <source_key>N_id_2</source_key>
-    <sink_key>N_id_2</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>lte_mimo_pss_coarse_sync_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_tagger_0</sink_block_id>
-    <source_key>N_id_2</source_key>
-    <sink_key>N_id_2</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>lte_mimo_pss_coarse_sync_0</source_block_id>
-    <sink_block_id>pad_sink_1</sink_block_id>
-    <source_key>N_id_2</source_key>
-    <sink_key>in</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>lte_mimo_pss_coarse_sync_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_fine_sync_1</sink_block_id>
-    <source_key>coarse_pos</source_key>
-    <sink_key>coarse_pos</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>lte_mimo_pss_coarse_sync_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_coarse_control_0</sink_block_id>
-    <source_key>control</source_key>
-    <sink_key>control</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>lte_mimo_pss_fine_sync_1</source_block_id>
-    <sink_block_id>lte_mimo_pss_tagger_0</sink_block_id>
-    <source_key>half_frame</source_key>
-    <sink_key>half_frame</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>lte_mimo_pss_fine_sync_1</source_block_id>
-    <sink_block_id>lte_mimo_pss_tagger_0</sink_block_id>
-    <source_key>lock</source_key>
-    <sink_key>lock</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>lte_mimo_pss_tagger_0</source_block_id>
-    <sink_block_id>pad_sink_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>lte_mimo_pss_tagger_0</source_block_id>
-    <sink_block_id>pad_sink_0</sink_block_id>
-    <source_key>1</source_key>
-    <sink_key>1</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pad_source_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_coarse_control_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pad_source_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_fine_sync_1</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pad_source_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_tagger_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pad_source_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_coarse_control_0</sink_block_id>
-    <source_key>1</source_key>
-    <sink_key>1</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pad_source_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_fine_sync_1</sink_block_id>
-    <source_key>1</source_key>
-    <sink_key>1</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pad_source_0</source_block_id>
-    <sink_block_id>lte_mimo_pss_tagger_0</sink_block_id>
-    <source_key>1</source_key>
-    <sink_key>1</sink_key>
-  </connection>
-</flow_graph>
+options:
+  parameters:
+    author: Kristian Maier
+    category: lte
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: hb
+    hier_block_src_path: '.:'
+    id: lte_pss_sync_direct_mimo_2tx
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: PSS Sync direct MIMO 2TX
+    window_size: 1500, 1200
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 11]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: taps
+  id: variable
+  parameters:
+    comment: ''
+    value: filter.optfir.low_pass(1, fftlen*15e3, 472.5e3, 900e3, 0.2, 40)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [400, 347]
+    rotation: 0
+    state: enabled
+- name: fftlen
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: FFT length
+    short_id: ''
+    type: intx
+    value: '2048'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [192, 11]
+    rotation: 0
+    state: enabled
+- name: fir_filter_xxx_0
+  id: fir_filter_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    decim: int(fftlen/64)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_delay: '0'
+    taps: taps
+    type: ccc
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [392, 411]
+    rotation: 0
+    state: enabled
+- name: fir_filter_xxx_0_0
+  id: fir_filter_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    decim: int(fftlen/64)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_delay: '0'
+    taps: taps
+    type: ccc
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [392, 500.0]
+    rotation: 0
+    state: enabled
+- name: lte_mimo_pss_coarse_control_0
+  id: lte_mimo_pss_coarse_control
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    rxant: rxant
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [128, 408]
+    rotation: 0
+    state: enabled
+- name: lte_mimo_pss_coarse_sync_0
+  id: lte_mimo_pss_coarse_sync
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    rxant: rxant
+    syncl: synclen
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [680, 408]
+    rotation: 0
+    state: enabled
+- name: lte_mimo_pss_fine_sync_1
+  id: lte_mimo_pss_fine_sync
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fftl: fftlen
+    grpdelay: int(len(taps)/2)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    rxant: rxant
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [688, 232]
+    rotation: 0
+    state: enabled
+- name: lte_mimo_pss_tagger_0
+  id: lte_mimo_pss_tagger
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fftl: fftlen
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    rxant: rxant
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1072, 168]
+    rotation: 0
+    state: enabled
+- name: pad_sink_0
+  id: pad_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    label: out
+    num_streams: rxant
+    optional: 'False'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1360, 216]
+    rotation: 0
+    state: enabled
+- name: pad_sink_1
+  id: pad_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    label: N_id_2
+    num_streams: '1'
+    optional: 'False'
+    type: message
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1152, 403]
+    rotation: 0
+    state: enabled
+- name: pad_source_0
+  id: pad_source
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    label: in
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_streams: rxant
+    optional: 'False'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [48, 168]
+    rotation: 0
+    state: enabled
+- name: rxant
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: RX antennas
+    short_id: ''
+    type: intx
+    value: '2'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [296, 11]
+    rotation: 0
+    state: enabled
+- name: synclen
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: ''
+    short_id: ''
+    type: intx
+    value: '4'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [416, 11]
+    rotation: 0
+    state: enabled
+
+connections:
+- [fir_filter_xxx_0, '0', lte_mimo_pss_coarse_sync_0, '0']
+- [fir_filter_xxx_0_0, '0', lte_mimo_pss_coarse_sync_0, '1']
+- [lte_mimo_pss_coarse_control_0, '0', fir_filter_xxx_0, '0']
+- [lte_mimo_pss_coarse_control_0, '1', fir_filter_xxx_0_0, '0']
+- [lte_mimo_pss_coarse_sync_0, N_id_2, lte_mimo_pss_fine_sync_1, N_id_2]
+- [lte_mimo_pss_coarse_sync_0, N_id_2, lte_mimo_pss_tagger_0, N_id_2]
+- [lte_mimo_pss_coarse_sync_0, N_id_2, pad_sink_1, in]
+- [lte_mimo_pss_coarse_sync_0, coarse_pos, lte_mimo_pss_fine_sync_1, coarse_pos]
+- [lte_mimo_pss_coarse_sync_0, control, lte_mimo_pss_coarse_control_0, control]
+- [lte_mimo_pss_fine_sync_1, half_frame, lte_mimo_pss_tagger_0, half_frame]
+- [lte_mimo_pss_fine_sync_1, lock, lte_mimo_pss_tagger_0, lock]
+- [lte_mimo_pss_tagger_0, '0', pad_sink_0, '0']
+- [lte_mimo_pss_tagger_0, '1', pad_sink_0, '1']
+- [pad_source_0, '0', lte_mimo_pss_coarse_control_0, '0']
+- [pad_source_0, '0', lte_mimo_pss_fine_sync_1, '0']
+- [pad_source_0, '0', lte_mimo_pss_tagger_0, '0']
+- [pad_source_0, '1', lte_mimo_pss_coarse_control_0, '1']
+- [pad_source_0, '1', lte_mimo_pss_fine_sync_1, '1']
+- [pad_source_0, '1', lte_mimo_pss_tagger_0, '1']
+
+metadata:
+  file_format: 1

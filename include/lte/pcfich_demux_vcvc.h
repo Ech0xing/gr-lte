@@ -36,7 +36,7 @@ namespace gr {
     class LTE_API pcfich_demux_vcvc : virtual public gr::block
     {
      public:
-      typedef boost::shared_ptr<pcfich_demux_vcvc> sptr;
+      typedef std::shared_ptr<pcfich_demux_vcvc> sptr;
       
       virtual void set_cell_id(int id) = 0;
 
