@@ -69,7 +69,9 @@ namespace gr {
      */
     mib_unpack_vbm_impl::~mib_unpack_vbm_impl()
     {
-        GR_LOG_INFO(d_logger, boost::format("%s\tdecoding_rate = %1.3f") % name().c_str() % get_decoding_rate());
+    	  std::ostringstream msg;
+    	  msg << boost::format("%s\tdecoding_rate = %1.3f") % name().c_str() % get_decoding_rate();
+        d_logger->info(msg.str()); 
     }
 
     int
@@ -106,7 +108,7 @@ namespace gr {
 		d_SFN = sfn;
 
         if(diff > 0){
-            GR_LOG_INFO(d_logger, boost::format("SFN = %i\tdiff = %i\t%s (%i)") % d_SFN % diff % d_state_info.get_values_string().c_str() % d_sfn_counter);
+            d_logger->info("SFN = {}\tdiff = {}\t{} ({})",d_SFN, diff, d_state_info.get_values_string().c_str(), d_sfn_counter);
             d_sfn_counter++;
             send_sfn();
         }
@@ -135,7 +137,7 @@ namespace gr {
 			d_state_info.phich_duration = phich_dur;
 			d_state_info.phich_resources = phich_res;
 			d_unchanged_decodings = 0;
-            GR_LOG_INFO(d_logger, boost::format("MIB changed!\t%s") % d_state_info.get_values_string().c_str());
+            d_logger->info("MIB changed!\t{}", d_state_info.get_values_string().c_str());
             send_state_mib();
 		}
 		else{
