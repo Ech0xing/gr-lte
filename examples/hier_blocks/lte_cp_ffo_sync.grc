@@ -1,6 +1,7 @@
 options:
   parameters:
     author: Johannes Demel
+    catch_exceptions: 'True'
     category: lte
     cmake_opt: ''
     comment: ''
@@ -98,6 +99,21 @@ blocks:
     coordinate: [254, 20]
     rotation: 0
     state: enabled
+- name: lte_sync_frequency_0
+  id: lte_sync_frequency
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fftl: fftlen
+    sig: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [656, 292.0]
+    rotation: 180
+    state: true
 - name: pad_sink_0
   id: pad_sink
   parameters:
@@ -148,9 +164,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [656, 236.0]
+    coordinate: [624, 220.0]
     rotation: 180
-    state: enabled
+    state: disabled
 - name: sync_ffofrac_multiply_xx_0
   id: blocks_multiply_xx
   parameters:
@@ -194,9 +210,11 @@ blocks:
 
 connections:
 - [pad_source_0, '0', sync_ffofrac_multiply_xx_0, '0']
+- [sync_ffofrac_multiply_xx_0, '0', lte_sync_frequency_0, '0']
 - [sync_ffofrac_multiply_xx_0, '0', pad_sink_0, '0']
 - [sync_ffofrac_multiply_xx_0, '0', sync_ffofrac_lte_sync_frequency_c_0, '0']
 - [sync_ffofrac_sig, '0', sync_ffofrac_multiply_xx_0, '1']
 
 metadata:
   file_format: 1
+  grc_version: v3.11.0.0git-395-g4f3dd2f4
