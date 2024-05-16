@@ -1,36 +1,43 @@
 # http://www.cmake.org/pipermail/cmake/2006-October/011446.html
-# Modified to use pkg config and use standard var names
+# Modified to use pkg-config and use standard var names
 
+# FindCppUnit.cmake
 #
-# Find the CppUnit includes and library
-#
-# This module defines
-# CPPUNIT_INCLUDE_DIR, where to find tiff.h, etc.
-# CPPUNIT_LIBRARIES, the libraries to link against to use CppUnit.
-# CPPUNIT_FOUND, If false, do not try to use CppUnit.
+# Locate CppUnit library and headers.
+# This module defines the following variables:
+#   CPPUNIT_FOUND - True if the library and headers were found
+#   CPPUNIT_INCLUDE_DIRS - Where to find the headers
+#   CPPUNIT_LIBRARIES - The libraries to link against
+#   CPPUNIT_VERSION - The version of CppUnit found (if available)
 
-INCLUDE(FindPkgConfig)
-PKG_CHECK_MODULES(PC_CPPUNIT "cppunit")
+# Use pkg-config to get hints about paths
+find_package(PkgConfig QUIET)
+pkg_check_modules(PC_CPPUNIT QUIET cppunit)
 
-FIND_PATH(CPPUNIT_INCLUDE_DIRS
-    NAMES cppunit/TestCase.h
-    HINTS ${PC_CPPUNIT_INCLUDE_DIR}
-    PATHS
-    /usr/local/include
-    /usr/include
-)
+set(CPPUNIT_DEFINITIONS ${PC_CPPUNIT_CFLAGS_OTHER})
 
-FIND_LIBRARY(CPPUNIT_LIBRARIES
-    NAMES cppunit
-    HINTS ${PC_CPPUNIT_LIBDIR}
-    PATHS
-    ${CPPUNIT_INCLUDE_DIRS}/../lib
-    /usr/local/lib
-    /usr/lib
-)
+# Find the CppUnit include directory
+find_path(CPPUNIT_INCLUDE_DIR NAMES cppunit/TestCase.h
+          HINTS ${PC_CPPUNIT_INCLUDE_DIRS}
+          PATHS /usr/include /usr/local/include)
 
-LIST(APPEND CPPUNIT_LIBRARIES ${CMAKE_DL_LIBS})
+# Find the CppUnit library
+find_library(CPPUNIT_LIBRARY NAMES cppunit
+             HINTS ${PC_CPPUNIT_LIBRARY_DIRS}
+             PATHS /usr/lib /usr/local/lib)
 
-INCLUDE(FindPackageHandleStandardArgs)
-FIND_PACKAGE_HANDLE_STANDARD_ARGS(CppUnit DEFAULT_MSG CPPUNIT_LIBRARIES CPPUNIT_INCLUDE_DIRS)
-MARK_AS_ADVANCED(CPPUNIT_LIBRARIES CPPUNIT_INCLUDE_DIRS)
+include(FindPackageHandleStandardArgs)
+# Handle the QUIETLY and REQUIRED arguments and set CPPUNIT_FOUND to TRUE
+# if all listed variables are TRUE
+find_package_handle_standard_args(CppUnit DEFAULT_MSG
+                                  CPPUNIT_LIBRARY CPPUNIT_INCLUDE_DIR)
+
+if(CPPUNIT_FOUND)
+  set(CPPUNIT_INCLUDE_DIRS ${CPPUNIT_INCLUDE_DIR})
+  set(CPPUNIT_LIBRARIES ${CPPUNIT_LIBRARY})
+else()
+  set(CPPUNIT_INCLUDE_DIRS)
+  set(CPPUNIT_LIBRARIES)
+endif()
+
+mark_as_advanced(CPPUNIT_INCLUDE_DIRS CPPUNIT_LIBRARIES)
