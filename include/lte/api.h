@@ -19,4 +19,8 @@
 #define LTE_API __GR_ATTR_IMPORT
 #endif
 
+#ifndef __GR_VLA
+#define __GR_VLA(type, name, size) type* name = static_cast<type*>(alloca(size * sizeof(type)))
+#endif
+
 #endif /* INCLUDED_LTE_API_H */
